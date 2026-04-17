@@ -36,3 +36,4 @@ Thumbs.db
 # Build artifacts
 dist/
 out/
+app/src/generated/client/

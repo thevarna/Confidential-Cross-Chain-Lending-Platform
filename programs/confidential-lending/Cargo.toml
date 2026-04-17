@@ -5,7 +5,7 @@ edition = "2021"
 description = "Confidential cross-chain lending program using Encrypt FHE and Ika dWallet"
 
 [lib]
-crate-type = ["cdylib", "lib"]
+crate-type = ["cdylib", "rlib"]
 
 [features]
 default = []

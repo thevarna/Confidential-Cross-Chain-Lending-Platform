@@ -4,7 +4,6 @@
 
 import { PublicKey } from "@solana/web3.js";
 import { DEMO_TOKEN_DECIMALS } from "@/sdk/constants";
-import crypto from "crypto";
 
 /** Format a token amount with decimals for display. */
 export function formatTokenAmount(amount: bigint | string, decimals = DEMO_TOKEN_DECIMALS): string {
@@ -31,7 +30,7 @@ export function truncateKey(key: string, chars = 4): string {
 
 /** Generate a random 16-byte loan ID. */
 export function generateLoanId(): Buffer {
-  return Buffer.from(crypto.getRandomValues(new Uint8Array(16)));
+  return Buffer.from(globalThis.crypto.getRandomValues(new Uint8Array(16)));
 }
 
 /** Convert a Buffer to hex string. */
