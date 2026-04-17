@@ -2,6 +2,7 @@
 
 import { useWallet } from "@solana/wallet-adapter-react";
 import { Landmark, ExternalLink } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 import { trpc } from "@/lib/trpc";
 import { truncateKey, formatBps, formatDuration, formatTokenAmount } from "@/lib/utils";
 import { StatusBadge } from "./StatusBadge";
@@ -48,36 +49,45 @@ export function LoanList() {
               </tr>
             </thead>
             <tbody>
-              {loans.data.map((loan) => (
-                <tr key={loan.id}>
-                  <td className="mono">{truncateKey(loan.id, 4)}</td>
-                  <td>
-                    <span style={{ fontWeight: 600, fontVariantNumeric: "tabular-nums" }}>
-                      {formatTokenAmount(loan.loanAmount, DEMO_TOKEN_DECIMALS)}
-                    </span>
-                    <span style={{ fontSize: 11, color: "var(--text-tertiary)", marginLeft: 4 }}>
-                      DEMO
-                    </span>
-                  </td>
-                  <td>{formatBps(loan.interestRateBps)}</td>
-                  <td>{formatDuration(loan.durationSeconds)}</td>
-                  <td><StatusBadge status={loan.status} /></td>
-                  <td className="mono">
-                    {truncateKey(loan.borrower, 4)}
-                    {loan.borrower === publicKey?.toBase58() && (
-                      <span style={{
-                        marginLeft: 6, fontSize: 10, padding: "1px 6px",
-                        background: "rgba(16, 185, 129, 0.12)",
-                        color: "var(--status-repaid)",
-                        borderRadius: "var(--radius-full)",
-                        fontWeight: 600,
-                      }}>
-                        YOU
+              <AnimatePresence mode="popLayout">
+                {loans.data.map((loan, idx) => (
+                  <motion.tr 
+                    key={loan.id}
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: idx * 0.05 }}
+                    exit={{ opacity: 0, scale: 0.95 }}
+                    layout
+                  >
+                    <td className="mono">{truncateKey(loan.id, 4)}</td>
+                    <td>
+                      <span style={{ fontWeight: 600, fontVariantNumeric: "tabular-nums" }}>
+                        {formatTokenAmount(loan.loanAmount, DEMO_TOKEN_DECIMALS)}
                       </span>
-                    )}
-                  </td>
-                </tr>
-              ))}
+                      <span style={{ fontSize: 11, color: "var(--text-tertiary)", marginLeft: 4 }}>
+                        DEMO
+                      </span>
+                    </td>
+                    <td>{formatBps(loan.interestRateBps)}</td>
+                    <td>{formatDuration(loan.durationSeconds)}</td>
+                    <td><StatusBadge status={loan.status} /></td>
+                    <td className="mono">
+                      {truncateKey(loan.borrower, 4)}
+                      {loan.borrower === publicKey?.toBase58() && (
+                        <span style={{
+                          marginLeft: 6, fontSize: 10, padding: "1px 6px",
+                          background: "rgba(16, 185, 129, 0.12)",
+                          color: "var(--status-repaid)",
+                          borderRadius: "var(--radius-full)",
+                          fontWeight: 600,
+                        }}>
+                          YOU
+                        </span>
+                      )}
+                    </td>
+                  </motion.tr>
+                ))}
+              </AnimatePresence>
             </tbody>
           </table>
         </div>
