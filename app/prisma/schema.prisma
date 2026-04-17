@@ -1,0 +1,79 @@
+// Prisma schema for the Confidential Lending Platform
+// Uses SQLite for hackathon portability — zero external DB dependencies.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+/// Tracks loan state with on-chain references.
+/// The source of truth is always on-chain; Prisma mirrors it for fast queries.
+model Loan {
+  id               String      @id // loan_id as hex string (16 bytes → 32 hex chars)
+  borrower         String      // Solana pubkey (base58)
+  lender           String?     // Solana pubkey (null until funded)
+  status           String      // Requested | Funded | Repaid | Defaulted | Cancelled
+  loanAmount       BigInt      // lamports / smallest unit
+  interestRateBps  Int         // basis points (e.g. 500 = 5%)
+  collateralMint   String      // Solana pubkey of collateral SPL mint
+  collateralAmount BigInt      // amount in smallest unit
+  durationSeconds  Int         // loan duration in seconds
+  dueDate          DateTime?   // calculated on funding
+  // ── Encrypt references ──
+  encryptedRepaymentCt String? // Pubkey of repayment ciphertext account
+  encryptedLtvCt       String? // Pubkey of LTV ciphertext account
+  // ── Ika references ──
+  dwalletPubkey        String? // Pubkey of borrower's dWallet
+  settlementApproval   String? // Pubkey of Ika MessageApproval PDA
+  settlementSignature  String? // Hex-encoded settlement signature (when available)
+  // ── Transaction references ──
+  createTxSig      String      // Solana tx signature for creation
+  fundTxSig        String?     // Solana tx signature for funding
+  repayTxSig       String?     // Solana tx signature for repayment
+  // ── Timestamps ──
+  createdAt        DateTime    @default(now())
+  updatedAt        DateTime    @updatedAt
+  fundedAt         DateTime?
+  repaidAt         DateTime?
+  // ── Relations ──
+  events           LoanEvent[]
+
+  @@index([borrower])
+  @@index([lender])
+  @@index([status])
+}
+
+/// Immutable event log for audit trail.
+model LoanEvent {
+  id        String   @id @default(cuid())
+  loanId    String
+  loan      Loan     @relation(fields: [loanId], references: [id])
+  type      String   // LoanCreated | LoanFunded | LoanRepaid | LoanDefaulted | LoanCancelled
+  txSig     String   // Solana transaction signature
+  data      String?  // Optional JSON blob with extra detail
+  createdAt DateTime @default(now())
+
+  @@index([loanId])
+  @@index([type])
+}
+
+/// Tracks dWallets created via Ika DKG.
+model DWallet {
+  id          String   @id @default(cuid())
+  owner       String   // Solana pubkey of the wallet that created it
+  dwalletPda  String   // On-chain dWallet account pubkey
+  publicKey   String   // dWallet's derived public key (for signing)
+  authority   String   // Current authority pubkey (user or CPI PDA)
+  curve       String   // Secp256k1 | Curve25519 | etc.
+  state       String   // DKGPending | Active | AuthorityTransferred
+  attestation String?  // BCS-serialized NetworkSignedAttestation (hex)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([owner])
+  @@index([state])
+}

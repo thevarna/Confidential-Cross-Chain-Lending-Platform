@@ -1,0 +1,244 @@
+    Checking confidential-lending v0.1.0 (/home/varna/solana-projects/Solana-native lending/programs/confidential-lending)
+warning: unexpected `cfg` condition value: `solana`
+  --> programs/confidential-lending/src/lib.rs:19:1
+   |
+19 | ...struction);
+   | ...^^^^^^^^^^
+   |
+   = note: expected values for `target_os` are: `aix`, `amdhsa`, `android`, `cuda`, `cygwin`, `dragonfly`, `emscripten`, `espidf`, `freebsd`, `fuchsia`, `haiku`, `helenos`, `hermit`, `horizon`, `hurd`, `illumos`, `ios`, `l4re`, `linux`, `lynxos178`, `macos`, `managarm`, `motor`, `netbsd`, `none`, `nto`, `nuttx`, `openbsd`, `psp`, `psx`, `qurt`, `redox`, `rtems`, `solaris`, and `solid_asp3` and 14 more
+   = note: using a cfg inside a macro will use the cfgs from the destination crate and not the ones from the defining crate
+   = help: try referring to `$crate::default_allocator` crate for guidance on how handle this unexpected cfg
+   = help: the macro `$crate::default_allocator` may come from an old version of the `pinocchio` crate, try updating your dependency with `cargo update -p pinocchio`
+   = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+   = note: `#[warn(unexpected_cfgs)]` on by default
+   = note: this warning originates in the macro `$crate::default_allocator` which comes from the expansion of the macro `entrypoint` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+warning: unexpected `cfg` condition value: `solana`
+  --> programs/confidential-lending/src/lib.rs:19:1
+   |
+19 | ...struction);
+   | ...^^^^^^^^^^
+   |
+   = note: expected values for `target_os` are: `aix`, `amdhsa`, `android`, `cuda`, `cygwin`, `dragonfly`, `emscripten`, `espidf`, `freebsd`, `fuchsia`, `haiku`, `helenos`, `hermit`, `horizon`, `hurd`, `illumos`, `ios`, `l4re`, `linux`, `lynxos178`, `macos`, `managarm`, `motor`, `netbsd`, `none`, `nto`, `nuttx`, `openbsd`, `psp`, `psx`, `qurt`, `redox`, `rtems`, `solaris`, and `solid_asp3` and 14 more
+   = note: using a cfg inside a macro will use the cfgs from the destination crate and not the ones from the defining crate
+   = help: try referring to `$crate::default_allocator` crate for guidance on how handle this unexpected cfg
+   = help: the macro `$crate::default_allocator` may come from an old version of the `pinocchio` crate, try updating your dependency with `cargo update -p pinocchio`
+   = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+   = note: this warning originates in the macro `$crate::default_allocator` which comes from the expansion of the macro `entrypoint` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+warning: unexpected `cfg` condition value: `solana`
+  --> programs/confidential-lending/src/lib.rs:19:1
+   |
+19 | ...struction);
+   | ...^^^^^^^^^^
+   |
+   = note: expected values for `target_os` are: `aix`, `amdhsa`, `android`, `cuda`, `cygwin`, `dragonfly`, `emscripten`, `espidf`, `freebsd`, `fuchsia`, `haiku`, `helenos`, `hermit`, `horizon`, `hurd`, `illumos`, `ios`, `l4re`, `linux`, `lynxos178`, `macos`, `managarm`, `motor`, `netbsd`, `none`, `nto`, `nuttx`, `openbsd`, `psp`, `psx`, `qurt`, `redox`, `rtems`, `solaris`, and `solid_asp3` and 14 more
+   = note: using a cfg inside a macro will use the cfgs from the destination crate and not the ones from the defining crate
+   = help: try referring to `$crate::default_panic_handler` crate for guidance on how handle this unexpected cfg
+   = help: the macro `$crate::default_panic_handler` may come from an old version of the `pinocchio` crate, try updating your dependency with `cargo update -p pinocchio`
+   = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+   = note: this warning originates in the macro `$crate::default_panic_handler` which comes from the expansion of the macro `entrypoint` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+warning: unused import: `pinocchio::error::ProgramError`
+ --> programs/confidential-lending/src/error.rs:6:5
+  |
+6 | use p...gramError;
+  |     ^...^^^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused imports: `CONFIG_DISCRIMINATOR` and `STATUS_REQUESTED`
+  --> programs/confidential-lending/src/instructions/create_loan.rs:49:31
+   |
+49 |     ConfigReader, LoanWriter, ...CRIMINATOR, E...
+   |                               ...^^^^^^^^^^
+50 |     ..._REQUESTED,
+   |     ...^^^^^^^^^^
+
+warning: unused import: `encrypt_types::encrypted::EUint64`
+  --> programs/confidential-lending/src/instructions/create_loan.rs:56:5
+   |
+56 | use ...d::EUint64;
+   |     ...^^^^^^^^^^
+
+warning: unused import: `clock::Clock`
+  --> programs/confidential-lending/src/instructions/initialize.rs:20:15
+   |
+20 | ...::{clock::Clock, r...
+   |       ^^^^^^^^^^^^
+
+warning: use of deprecated method `pinocchio::sysvars::rent::Rent::minimum_balance`: Use `Rent::try_minimum_balance` instead
+   --> programs/confidential-lending/src/instructions/create_loan.rs:130:32
+    |
+130 | ...)?.minimum_balance(LO...
+    |       ^^^^^^^^^^^^^^^
+    |
+    = note: `#[warn(deprecated)]` on by default
+
+warning: use of deprecated method `pinocchio::sysvars::rent::Rent::minimum_balance`: Use `Rent::try_minimum_balance` instead
+  --> programs/confidential-lending/src/instructions/initialize.rs:69:32
+   |
+69 | ...)?.minimum_balance(CO...
+   |       ^^^^^^^^^^^^^^^
+
+
+thread 'rustc' (41751) panicked at /rustc-dev/4a4ef493e3a1488c6e321570238084b38948f6db/library/alloc/src/vec/mod.rs:2873:36:
+slice index starts at 13 but ends at 12
+stack backtrace:
+   0:     0x7f3a02a5c603 - <std::sys::backtrace::BacktraceLock::print::DisplayBacktrace as core::fmt::Display>::fmt::h93773fc827e3113d
+   1:     0x7f3a0300e488 - core::fmt::write::hed7b5c73d82ecb7c
+   2:     0x7f3a044f8142 - std::io::Write::write_fmt::h6f0185aecf0ed75f
+   3:     0x7f3a02a29b65 - std::panicking::default_hook::{{closure}}::h2be84df4f189ae36
+   4:     0x7f3a02a29993 - std::panicking::default_hook::hf0ea8939246f43a9
+   5:     0x7f3a01a10aea - std[765ed69a96918746]::panicking::update_hook::<alloc[7a43974b6697a11c]::boxed::Box<rustc_driver_impl[252c3262fddb99f]::install_ice_hook::{closure#1}>>::{closure#0}
+   6:     0x7f3a02a29e92 - std::panicking::panic_with_hook::hb4bd9ac1123582a0
+   7:     0x7f3a02a29c28 - std::panicking::panic_handler::{{closure}}::hde00dd15f5637fe2
+   8:     0x7f3a02a23ac9 - std::sys::backtrace::__rust_end_short_backtrace::hb72197fa777c1785
+   9:     0x7f3a02a0448d - __rustc[4425a7e20b4c8619]::rust_begin_unwind
+  10:     0x7f39ff58e35c - core::panicking::panic_fmt::ha59b517dd231f4da
+  11:     0x7f39ff266c1d - core::slice::index::slice_index_fail::h172ece6e023ae9aa
+  12:     0x7f3a013697f5 - <annotate_snippets[6ed311536602540c]::renderer::styled_buffer::StyledBuffer>::replace
+  13:     0x7f3a043d5d67 - annotate_snippets[6ed311536602540c]::renderer::render::render
+  14:     0x7f3a043c9180 - <rustc_errors[45351c624685c6c4]::annotate_snippet_emitter_writer::AnnotateSnippetEmitter>::emit_messages_default
+  15:     0x7f3a045004a1 - <rustc_errors[45351c624685c6c4]::annotate_snippet_emitter_writer::AnnotateSnippetEmitter as rustc_errors[45351c624685c6c4]::emitter::Emitter>::emit_diagnostic
+  16:     0x7f3a04502cc0 - <rustc_errors[45351c624685c6c4]::json::Diagnostic>::from_errors_diagnostic
+  17:     0x7f3a045023ea - <rustc_errors[45351c624685c6c4]::json::JsonEmitter as rustc_errors[45351c624685c6c4]::emitter::Emitter>::emit_diagnostic
+  18:     0x7f3a044fc46a - <rustc_errors[45351c624685c6c4]::DiagCtxtInner>::emit_diagnostic::{closure#3}
+  19:     0x7f3a044f9eb3 - rustc_interface[c6a26c9f392246cf]::callbacks::track_diagnostic::<core[32850a7867c2faaf]::option::Option<rustc_span[56e001752d96add4]::ErrorGuaranteed>>
+  20:     0x7f3a044f8f3c - <rustc_errors[45351c624685c6c4]::DiagCtxtInner>::emit_diagnostic
+  21:     0x7f3a044f8ded - <rustc_errors[45351c624685c6c4]::DiagCtxtHandle>::emit_diagnostic
+  22:     0x7f3a044f8cab - <() as rustc_errors[45351c624685c6c4]::diagnostic::EmissionGuarantee>::emit_producing_guarantee
+  23:     0x7f3a03f6bd00 - rustc_middle[f9db403ed88df217]::lint::lint_level::lint_level_impl
+  24:     0x7f3a03cb91c4 - rustc_mir_transform[cf8c24f93f85a18f]::liveness::check_liveness::{closure#0}
+  25:     0x7f3a03cb1172 - rustc_query_impl[d9e05d596e7fb2e4]::plumbing::__rust_begin_short_backtrace::<rustc_query_impl[d9e05d596e7fb2e4]::query_impl::check_liveness::dynamic_query::{closure#2}::{closure#0}, rustc_middle[f9db403ed88df217]::query::erase::Erased<[u8; 8usize]>>
+  26:     0x7f3a03345e71 - rustc_query_system[5bf9c757c7651d1c]::query::plumbing::try_execute_query::<rustc_query_impl[d9e05d596e7fb2e4]::DynamicConfig<rustc_data_structures[721127a3047d6cb5]::vec_cache::VecCache<rustc_span[56e001752d96add4]::def_id::LocalDefId, rustc_middle[f9db403ed88df217]::query::erase::Erased<[u8; 8usize]>, rustc_query_system[5bf9c757c7651d1c]::dep_graph::graph::DepNodeIndex>, false, false, false>, rustc_query_impl[d9e05d596e7fb2e4]::plumbing::QueryCtxt, true>
+  27:     0x7f3a0313b950 - rustc_query_impl[d9e05d596e7fb2e4]::query_impl::check_liveness::get_query_incr::__rust_end_short_backtrace
+  28:     0x7f3a03f2bf93 - <rustc_middle[f9db403ed88df217]::ty::context::TyCtxt>::par_hir_body_owners::<rustc_interface[c6a26c9f392246cf]::passes::run_required_analyses::{closure#1}::{closure#0}>::{closure#0}
+  29:     0x7f3a03f298ca - rustc_interface[c6a26c9f392246cf]::passes::analysis
+  30:     0x7f3a03f28cf5 - rustc_query_impl[d9e05d596e7fb2e4]::plumbing::__rust_begin_short_backtrace::<rustc_query_impl[d9e05d596e7fb2e4]::query_impl::analysis::dynamic_query::{closure#2}::{closure#0}, rustc_middle[f9db403ed88df217]::query::erase::Erased<[u8; 0usize]>>
+  31:     0x7f3a043874cf - rustc_query_system[5bf9c757c7651d1c]::query::plumbing::try_execute_query::<rustc_query_impl[d9e05d596e7fb2e4]::DynamicConfig<rustc_query_system[5bf9c757c7651d1c]::query::caches::SingleCache<rustc_middle[f9db403ed88df217]::query::erase::Erased<[u8; 0usize]>>, false, false, false>, rustc_query_impl[d9e05d596e7fb2e4]::plumbing::QueryCtxt, true>
+  32:     0x7f3a04386d7f - rustc_query_impl[d9e05d596e7fb2e4]::query_impl::analysis::get_query_incr::__rust_end_short_backtrace
+  33:     0x7f3a04390111 - <rustc_interface[c6a26c9f392246cf]::passes::create_and_enter_global_ctxt<core[32850a7867c2faaf]::option::Option<rustc_interface[c6a26c9f392246cf]::queries::Linker>, rustc_driver_impl[252c3262fddb99f]::run_compiler::{closure#0}::{closure#2}>::{closure#2} as core[32850a7867c2faaf]::ops::function::FnOnce<(&rustc_session[eab982bd009dcc5a]::session::Session, rustc_middle[f9db403ed88df217]::ty::context::CurrentGcx, alloc[7a43974b6697a11c]::sync::Arc<rustc_data_structures[721127a3047d6cb5]::jobserver::Proxy>, &std[765ed69a96918746]::sync::once_lock::OnceLock<rustc_middle[f9db403ed88df217]::ty::context::GlobalCtxt>, &rustc_data_structures[721127a3047d6cb5]::sync::worker_local::WorkerLocal<rustc_middle[f9db403ed88df217]::arena::Arena>, &rustc_data_structures[721127a3047d6cb5]::sync::worker_local::WorkerLocal<rustc_hir[41466cadac454391]::Arena>, rustc_driver_impl[252c3262fddb99f]::run_compiler::{closure#0}::{closure#2})>>::call_once::{shim:vtable#0}
+  34:     0x7f3a041810b4 - rustc_interface[c6a26c9f392246cf]::interface::run_compiler::<(), rustc_driver_impl[252c3262fddb99f]::run_compiler::{closure#0}>::{closure#1}
+  35:     0x7f3a04129b7a - std[765ed69a96918746]::sys::backtrace::__rust_begin_short_backtrace::<rustc_interface[c6a26c9f392246cf]::util::run_in_thread_with_globals<rustc_interface[c6a26c9f392246cf]::util::run_in_thread_pool_with_globals<rustc_interface[c6a26c9f392246cf]::interface::run_compiler<(), rustc_driver_impl[252c3262fddb99f]::run_compiler::{closure#0}>::{closure#1}, ()>::{closure#0}, ()>::{closure#0}::{closure#0}, ()>
+  36:     0x7f3a0412993e - <std[765ed69a96918746]::thread::lifecycle::spawn_unchecked<rustc_interface[c6a26c9f392246cf]::util::run_in_thread_with_globals<rustc_interface[c6a26c9f392246cf]::util::run_in_thread_pool_with_globals<rustc_interface[c6a26c9f392246cf]::interface::run_compiler<(), rustc_driver_impl[252c3262fddb99f]::run_compiler::{closure#0}>::{closure#1}, ()>::{closure#0}, ()>::{closure#0}::{closure#0}, ()>::{closure#1} as core[32850a7867c2faaf]::ops::function::FnOnce<()>>::call_once::{shim:vtable#0}
+  37:     0x7f3a0412b702 - std::sys::thread::unix::Thread::new::thread_start::h982f9ea829d1b5fb
+  38:     0x7f39fdc8aaa4 - <unknown>
+  39:     0x7f39fdd17c6c - <unknown>
+  40:                0x0 - <unknown>
+
+error: the compiler unexpectedly panicked. this is a bug.
+
+note: we would appreciate a bug report: https://github.com/rust-lang/rust/issues/new?labels=C-bug%2C+I-ICE%2C+T-compiler&template=ice.md
+
+note: rustc 1.94.0 (4a4ef493e 2026-03-02) running on x86_64-unknown-linux-gnu
+
+note: compiler flags: --crate-type cdylib --crate-type lib -C embed-bitcode=no -C debuginfo=2 -C incremental=[REDACTED]
+
+note: some of the compiler flags provided by cargo are hidden
+
+query stack during panic:
+#0 [check_liveness] checking liveness of variables in `instructions::create_loan::process`
+#1 [analysis] running analysis passes on crate `confidential_lending`
+end of query stack
+warning: unused variable: `token_program`
+  --> programs/confidential-lending/src/instructions/fund_loan.rs:32:76
+   |
+32 | ...n, token_program, _...
+   |       ^^^^^^^^^^^^^ help: if this is intentional, prefix it with an undersc...: `_token_program`
+
+warning: unused variable: `system_program`
+  --> programs/confidential-lending/src/instructions/initialize.rs:30:33
+   |
+30 | ...n, system_program] =...
+   |       ^^^^^^^^^^^^^^ help: if th...s intentional, prefix it with an underscore: `_system_program`
+
+warning: unused variable: `signer_seeds`
+  --> programs/confidential-lending/src/instructions/initialize.rs:64:9
+   |
+64 | ...et signer_seeds: &...
+   |       ^^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_signer_seeds`
+
+warning: unused variable: `token_program`
+  --> programs/confidential-lending/src/instructions/liquidate_loan.rs:33:98
+   |
+33 | ...y, token_program] =
+   |       ^^^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_token_program`
+
+warning: unused variable: `escrow_seeds`
+  --> programs/confidential-lending/src/instructions/liquidate_loan.rs:89:9
+   |
+89 | ...et escrow_seeds: &...
+   |       ^^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_escrow_seeds`
+
+warning: unused variable: `token_program`
+  --> programs/confidential-lending/src/instructions/repay_loan.rs:55:112
+   |
+55 | ...y, token_program, d...
+   |       ^^^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_token_program`
+
+
+thread 'rustc' (41751) panicked at /rustc-dev/4a4ef493e3a1488c6e321570238084b38948f6db/library/alloc/src/vec/mod.rs:2873:36:
+slice index starts at 13 but ends at 12
+stack backtrace:
+   0:     0x7f3a02a5c603 - <std::sys::backtrace::BacktraceLock::print::DisplayBacktrace as core::fmt::Display>::fmt::h93773fc827e3113d
+   1:     0x7f3a0300e488 - core::fmt::write::hed7b5c73d82ecb7c
+   2:     0x7f3a044f8142 - std::io::Write::write_fmt::h6f0185aecf0ed75f
+   3:     0x7f3a02a29b65 - std::panicking::default_hook::{{closure}}::h2be84df4f189ae36
+   4:     0x7f3a02a29993 - std::panicking::default_hook::hf0ea8939246f43a9
+   5:     0x7f3a01a10aea - std[765ed69a96918746]::panicking::update_hook::<alloc[7a43974b6697a11c]::boxed::Box<rustc_driver_impl[252c3262fddb99f]::install_ice_hook::{closure#1}>>::{closure#0}
+   6:     0x7f3a02a29e92 - std::panicking::panic_with_hook::hb4bd9ac1123582a0
+   7:     0x7f3a02a29c28 - std::panicking::panic_handler::{{closure}}::hde00dd15f5637fe2
+   8:     0x7f3a02a23ac9 - std::sys::backtrace::__rust_end_short_backtrace::hb72197fa777c1785
+   9:     0x7f3a02a0448d - __rustc[4425a7e20b4c8619]::rust_begin_unwind
+  10:     0x7f39ff58e35c - core::panicking::panic_fmt::ha59b517dd231f4da
+  11:     0x7f39ff266c1d - core::slice::index::slice_index_fail::h172ece6e023ae9aa
+  12:     0x7f3a013697f5 - <annotate_snippets[6ed311536602540c]::renderer::styled_buffer::StyledBuffer>::replace
+  13:     0x7f3a043d5d67 - annotate_snippets[6ed311536602540c]::renderer::render::render
+  14:     0x7f3a043c9180 - <rustc_errors[45351c624685c6c4]::annotate_snippet_emitter_writer::AnnotateSnippetEmitter>::emit_messages_default
+  15:     0x7f3a045004a1 - <rustc_errors[45351c624685c6c4]::annotate_snippet_emitter_writer::AnnotateSnippetEmitter as rustc_errors[45351c624685c6c4]::emitter::Emitter>::emit_diagnostic
+  16:     0x7f3a04502cc0 - <rustc_errors[45351c624685c6c4]::json::Diagnostic>::from_errors_diagnostic
+  17:     0x7f3a045023ea - <rustc_errors[45351c624685c6c4]::json::JsonEmitter as rustc_errors[45351c624685c6c4]::emitter::Emitter>::emit_diagnostic
+  18:     0x7f3a044fc46a - <rustc_errors[45351c624685c6c4]::DiagCtxtInner>::emit_diagnostic::{closure#3}
+  19:     0x7f3a044f9eb3 - rustc_interface[c6a26c9f392246cf]::callbacks::track_diagnostic::<core[32850a7867c2faaf]::option::Option<rustc_span[56e001752d96add4]::ErrorGuaranteed>>
+  20:     0x7f3a044f8f3c - <rustc_errors[45351c624685c6c4]::DiagCtxtInner>::emit_diagnostic
+  21:     0x7f3a044f8ded - <rustc_errors[45351c624685c6c4]::DiagCtxtHandle>::emit_diagnostic
+  22:     0x7f3a044f8cab - <() as rustc_errors[45351c624685c6c4]::diagnostic::EmissionGuarantee>::emit_producing_guarantee
+  23:     0x7f3a03f6bd00 - rustc_middle[f9db403ed88df217]::lint::lint_level::lint_level_impl
+  24:     0x7f3a03cb91c4 - rustc_mir_transform[cf8c24f93f85a18f]::liveness::check_liveness::{closure#0}
+  25:     0x7f3a03cb1172 - rustc_query_impl[d9e05d596e7fb2e4]::plumbing::__rust_begin_short_backtrace::<rustc_query_impl[d9e05d596e7fb2e4]::query_impl::check_liveness::dynamic_query::{closure#2}::{closure#0}, rustc_middle[f9db403ed88df217]::query::erase::Erased<[u8; 8usize]>>
+  26:     0x7f3a03345e71 - rustc_query_system[5bf9c757c7651d1c]::query::plumbing::try_execute_query::<rustc_query_impl[d9e05d596e7fb2e4]::DynamicConfig<rustc_data_structures[721127a3047d6cb5]::vec_cache::VecCache<rustc_span[56e001752d96add4]::def_id::LocalDefId, rustc_middle[f9db403ed88df217]::query::erase::Erased<[u8; 8usize]>, rustc_query_system[5bf9c757c7651d1c]::dep_graph::graph::DepNodeIndex>, false, false, false>, rustc_query_impl[d9e05d596e7fb2e4]::plumbing::QueryCtxt, true>
+  27:     0x7f3a0313b950 - rustc_query_impl[d9e05d596e7fb2e4]::query_impl::check_liveness::get_query_incr::__rust_end_short_backtrace
+  28:     0x7f3a03f2bf93 - <rustc_middle[f9db403ed88df217]::ty::context::TyCtxt>::par_hir_body_owners::<rustc_interface[c6a26c9f392246cf]::passes::run_required_analyses::{closure#1}::{closure#0}>::{closure#0}
+  29:     0x7f3a03f298ca - rustc_interface[c6a26c9f392246cf]::passes::analysis
+  30:     0x7f3a03f28cf5 - rustc_query_impl[d9e05d596e7fb2e4]::plumbing::__rust_begin_short_backtrace::<rustc_query_impl[d9e05d596e7fb2e4]::query_impl::analysis::dynamic_query::{closure#2}::{closure#0}, rustc_middle[f9db403ed88df217]::query::erase::Erased<[u8; 0usize]>>
+  31:     0x7f3a043874cf - rustc_query_system[5bf9c757c7651d1c]::query::plumbing::try_execute_query::<rustc_query_impl[d9e05d596e7fb2e4]::DynamicConfig<rustc_query_system[5bf9c757c7651d1c]::query::caches::SingleCache<rustc_middle[f9db403ed88df217]::query::erase::Erased<[u8; 0usize]>>, false, false, false>, rustc_query_impl[d9e05d596e7fb2e4]::plumbing::QueryCtxt, true>
+  32:     0x7f3a04386d7f - rustc_query_impl[d9e05d596e7fb2e4]::query_impl::analysis::get_query_incr::__rust_end_short_backtrace
+  33:     0x7f3a04390111 - <rustc_interface[c6a26c9f392246cf]::passes::create_and_enter_global_ctxt<core[32850a7867c2faaf]::option::Option<rustc_interface[c6a26c9f392246cf]::queries::Linker>, rustc_driver_impl[252c3262fddb99f]::run_compiler::{closure#0}::{closure#2}>::{closure#2} as core[32850a7867c2faaf]::ops::function::FnOnce<(&rustc_session[eab982bd009dcc5a]::session::Session, rustc_middle[f9db403ed88df217]::ty::context::CurrentGcx, alloc[7a43974b6697a11c]::sync::Arc<rustc_data_structures[721127a3047d6cb5]::jobserver::Proxy>, &std[765ed69a96918746]::sync::once_lock::OnceLock<rustc_middle[f9db403ed88df217]::ty::context::GlobalCtxt>, &rustc_data_structures[721127a3047d6cb5]::sync::worker_local::WorkerLocal<rustc_middle[f9db403ed88df217]::arena::Arena>, &rustc_data_structures[721127a3047d6cb5]::sync::worker_local::WorkerLocal<rustc_hir[41466cadac454391]::Arena>, rustc_driver_impl[252c3262fddb99f]::run_compiler::{closure#0}::{closure#2})>>::call_once::{shim:vtable#0}
+  34:     0x7f3a041810b4 - rustc_interface[c6a26c9f392246cf]::interface::run_compiler::<(), rustc_driver_impl[252c3262fddb99f]::run_compiler::{closure#0}>::{closure#1}
+  35:     0x7f3a04129b7a - std[765ed69a96918746]::sys::backtrace::__rust_begin_short_backtrace::<rustc_interface[c6a26c9f392246cf]::util::run_in_thread_with_globals<rustc_interface[c6a26c9f392246cf]::util::run_in_thread_pool_with_globals<rustc_interface[c6a26c9f392246cf]::interface::run_compiler<(), rustc_driver_impl[252c3262fddb99f]::run_compiler::{closure#0}>::{closure#1}, ()>::{closure#0}, ()>::{closure#0}::{closure#0}, ()>
+  36:     0x7f3a0412993e - <std[765ed69a96918746]::thread::lifecycle::spawn_unchecked<rustc_interface[c6a26c9f392246cf]::util::run_in_thread_with_globals<rustc_interface[c6a26c9f392246cf]::util::run_in_thread_pool_with_globals<rustc_interface[c6a26c9f392246cf]::interface::run_compiler<(), rustc_driver_impl[252c3262fddb99f]::run_compiler::{closure#0}>::{closure#1}, ()>::{closure#0}, ()>::{closure#0}::{closure#0}, ()>::{closure#1} as core[32850a7867c2faaf]::ops::function::FnOnce<()>>::call_once::{shim:vtable#0}
+  37:     0x7f3a0412b702 - std::sys::thread::unix::Thread::new::thread_start::h982f9ea829d1b5fb
+  38:     0x7f39fdc8aaa4 - <unknown>
+  39:     0x7f39fdd17c6c - <unknown>
+  40:                0x0 - <unknown>
+
+error: the compiler unexpectedly panicked. this is a bug.
+
+note: we would appreciate a bug report: https://github.com/rust-lang/rust/issues/new?labels=C-bug%2C+I-ICE%2C+T-compiler&template=ice.md
+
+note: rustc 1.94.0 (4a4ef493e 2026-03-02) running on x86_64-unknown-linux-gnu
+
+note: compiler flags: --crate-type cdylib --crate-type lib -C embed-bitcode=no -C debuginfo=2 -C incremental=[REDACTED]
+
+note: some of the compiler flags provided by cargo are hidden
+
+query stack during panic:
+#0 [check_liveness] checking liveness of variables in `instructions::repay_loan::process`
+#1 [analysis] running analysis passes on crate `confidential_lending`
+end of query stack
+warning: `confidential-lending` (lib) generated 15 warnings (run `cargo fix --lib -p confidential-lending` to apply 10 suggestions)
+error: could not compile `confidential-lending` (lib); 15 warnings emitted
+
+Caused by:
+  process didn't exit successfully: `/home/varna/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/bin/rustc --crate-name confidential_lending --edition=2021 programs/confidential-lending/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type cdylib --crate-type lib --emit=dep-info,metadata -C embed-bitcode=no -C debuginfo=2 --cfg 'feature="default"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("default", "sbf"))' -C metadata=1b40c32d9efc1d7f -C extra-filename=-6ef124fbda52588b --out-dir '/home/varna/solana-projects/Solana-native lending/target/debug/deps' -C 'incremental=/home/varna/solana-projects/Solana-native lending/target/debug/incremental' -L 'dependency=/home/varna/solana-projects/Solana-native lending/target/debug/deps' --extern 'encrypt_pinocchio=/home/varna/solana-projects/Solana-native lending/target/debug/deps/libencrypt_pinocchio-86e4909ba86e11f2.rmeta' --extern 'encrypt_dsl=/home/varna/solana-projects/Solana-native lending/target/debug/deps/libencrypt_solana_dsl-bb2727decba76520.rmeta' --extern 'encrypt_types=/home/varna/solana-projects/Solana-native lending/target/debug/deps/libencrypt_types-16b0afb81a0aeb05.rmeta' --extern 'five8_const=/home/varna/solana-projects/Solana-native lending/target/debug/deps/libfive8_const-47af53d5a3ca8696.rmeta' --extern 'ika_dwallet_pinocchio=/home/varna/solana-projects/Solana-native lending/target/debug/deps/libika_dwallet_pinocchio-3abf27f9c9a87901.rmeta' --extern 'ika_dwallet_types=/home/varna/solana-projects/Solana-native lending/target/debug/deps/libika_dwallet_types-b30656ead5d39398.rmeta' --extern 'pinocchio=/home/varna/solana-projects/Solana-native lending/target/debug/deps/libpinocchio-303429ed2cb48a06.rmeta' --extern 'pinocchio_system=/home/varna/solana-projects/Solana-native lending/target/debug/deps/libpinocchio_system-1ffe6898594b1f35.rmeta' --extern 'pinocchio_token=/home/varna/solana-projects/Solana-native lending/target/debug/deps/libpinocchio_token-88510c8b91bfd4f4.rmeta' --extern 'solana_address=/home/varna/solana-projects/Solana-native lending/target/debug/deps/libsolana_address-78762a85c8b2218b.rmeta' --extern 'solana_program_log=/home/varna/solana-projects/Solana-native lending/target/debug/deps/libsolana_program_log-77a90da85b7024d0.rmeta'` (exit status: 101)

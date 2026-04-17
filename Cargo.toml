@@ -1,0 +1,8 @@
+[workspace]
+members = ["programs/confidential-lending"]
+resolver = "2"
+
+[workspace.dependencies]
+pinocchio = "0.10"
+pinocchio-system = "0.6"
+pinocchio-token = "0.5"

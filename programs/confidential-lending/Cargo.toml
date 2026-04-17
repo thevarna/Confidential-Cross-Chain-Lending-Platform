@@ -1,0 +1,40 @@
+[package]
+name = "confidential-lending"
+version = "0.1.0"
+edition = "2021"
+description = "Confidential cross-chain lending program using Encrypt FHE and Ika dWallet"
+
+[lib]
+crate-type = ["cdylib", "lib"]
+
+[features]
+default = []
+# Enable for SBF target builds
+sbf = []
+
+[dependencies]
+# ── Pinocchio (Solana framework — compatible with both sponsor SDKs) ──
+pinocchio = { workspace = true }
+pinocchio-system = { workspace = true }
+pinocchio-token = { workspace = true }
+
+# ── Encrypt Pre-Alpha (FHE computation) ──
+encrypt-types = { git = "https://github.com/dwallet-labs/encrypt-pre-alpha" }
+encrypt-dsl = { package = "encrypt-solana-dsl", git = "https://github.com/dwallet-labs/encrypt-pre-alpha" }
+encrypt-pinocchio = { git = "https://github.com/dwallet-labs/encrypt-pre-alpha" }
+
+# ── Ika Pre-Alpha (dWallet cross-chain signing) ──
+ika-dwallet-pinocchio = { git = "https://github.com/dwallet-labs/ika-pre-alpha" }
+ika-dwallet-types = { git = "https://github.com/dwallet-labs/ika-pre-alpha" }
+
+# ── Base58 ──
+five8_const = "0.1"
+
+# ── Logging ──
+solana-program-log = "1.0"
+
+# ── Solana Types ──
+# We need curve25519 for find_program_address on host (cargo check)
+solana-address = { version = "2", features = ["curve25519"] }
+
+[dev-dependencies]

@@ -1,0 +1,38 @@
+# Rust
+target/
+**/*.rs.bk
+
+# Solana
+test-ledger/
+.anchor/
+
+# Node
+node_modules/
+.next/
+app/.next/
+app/node_modules/
+
+# Environment
+.env
+.env.local
+.env.production
+
+# Database
+*.db
+*.db-journal
+app/prisma/dev.db
+app/prisma/dev.db-journal
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Build artifacts
+dist/
+out/
